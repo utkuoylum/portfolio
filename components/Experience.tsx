@@ -4,6 +4,7 @@ import { useRef, useState, type CSSProperties } from 'react';
 import { gsap, ScrollTrigger, useGSAP } from '@/lib/gsap';
 import { DESKTOP } from '@/lib/motion';
 import { experience } from '@/lib/content';
+import Field from './Field';
 
 const DIGITS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -42,6 +43,7 @@ export default function Experience() {
 
   return (
     <section ref={root} className="experience" id="experience" aria-labelledby="experience-title" data-section="experience">
+      <Field variant="rings" />
       <div className="wrap">
         <header className="section-head">
           <h2 className="section-title" id="experience-title">

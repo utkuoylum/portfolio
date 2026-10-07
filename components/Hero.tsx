@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap, SplitText, useGSAP } from '@/lib/gsap';
 import { MOTION, fontsReady } from '@/lib/motion';
 import { hero, person } from '@/lib/content';
+import Field from './Field';
 
 // Light passes once through the statement (gradient-text-sweep, form A).
 function sweep(lines: Element[]) {
@@ -95,6 +96,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top" data-section="hero">
+      <Field variant="lens" />
       <div ref={inner} className="wrap hero__inner" data-hero>
         <h1 className="hero__name" data-hero-item>
           {person.name}

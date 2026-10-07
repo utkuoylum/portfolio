@@ -68,6 +68,22 @@ Line length under 70ch for body copy.
 - `prefers-reduced-motion`: no smooth scroll, no scrubbing, no loops; everything renders final.
 - Content is readable without JavaScript.
 
+## Background fields
+
+Every section carries a barely visible pattern in its own ink: fine dots and hairlines, never color,
+alpha around 6 to 10 percent, brighter only near the pointer. One family, one behaviour per section:
+
+- Hero: a dot grid that breathes and swells under the pointer like a lens.
+- Profile: a soft band crosses the grid as the paragraph is read.
+- Things I build: a blueprint of crosses that turn into x marks under the pointer, with packets on the rows.
+- Experience: uneven tree rings around the year odometer; the ring at the pointer's distance lights up.
+- Toolkit: a drifting lattice that connects into a network near the pointer.
+- Education: the quietest grid.
+- Contact: the pointer, clicks and every logged event send a ripple through the dots.
+
+Each canvas sticks to the viewport inside its section, so it is never larger than the screen; one loop on
+the GSAP ticker draws only fields in view, at half rate when nothing reacts.
+
 ## Tech
 
 Next.js 16 (App Router) with `output: 'export'`, React 19 and TypeScript. Every section is prerendered

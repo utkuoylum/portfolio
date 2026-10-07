@@ -5,6 +5,7 @@ import { gsap, ScrollTrigger, useGSAP } from '@/lib/gsap';
 import { MOTION, PHONE } from '@/lib/motion';
 import { track } from '@/lib/sessionLog';
 import { toolkit, type LayerId } from '@/lib/content';
+import Field from './Field';
 
 const layerName = (id: LayerId) => toolkit.layers.find((layer) => layer.id === id)!.name;
 
@@ -77,6 +78,7 @@ export default function Toolkit() {
 
   return (
     <section ref={root} className="toolkit" id="toolkit" aria-labelledby="toolkit-title" data-section="toolkit">
+      <Field variant="mesh" />
       <div className="wrap">
         <header className="section-head">
           <h2 className="section-title" id="toolkit-title">

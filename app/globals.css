@@ -239,6 +239,46 @@ html.lenis body {
   color: var(--fg);
 }
 
+/* ---------- Background fields ---------- */
+
+[data-section] {
+  position: relative;
+  isolation: isolate;
+}
+
+[data-section] > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: clip;
+  pointer-events: none;
+  /* Static fallback for phones, reduced motion and no-JS: the same dots, without motion. */
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--fg) 9%, transparent) 0.8px, transparent 1.3px);
+  background-size: 24px 24px;
+  background-position: center top;
+}
+
+.field canvas {
+  display: none;
+}
+
+.field.is-live {
+  background-image: none;
+}
+
+/* The canvas sticks to the viewport while its section passes, so it is never taller than the screen. */
+.field.is-live canvas {
+  position: sticky;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+
 /* ---------- Navigation ---------- */
 
 .nav {
