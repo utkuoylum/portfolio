@@ -1,0 +1,5 @@
+# Source material that must never be published (contains a phone number)
+*.docx
+
+.DS_Store
+node_modules/

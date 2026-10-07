@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG image</title>
+<style>
+  @font-face {
+    font-family: "Mona Sans";
+    src: url("../site/assets/fonts/mona-sans-latin.woff2") format("woff2");
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+  }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #fff;
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .frame {
+    position: absolute;
+    inset: 0;
+    padding: 64px 72px 68px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .name { font-size: 28px; font-weight: 600; letter-spacing: -0.01em; }
+  .mark { display: block; }
+  .statement {
+    margin: 0;
+    font-size: 112px;
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    font-weight: 600;
+  }
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid #e2e2e2;
+    font-size: 24px;
+    color: #6b6b6b;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <div class="name">Etem Utku Oylum</div>
+      <svg class="mark" width="64" height="32" viewBox="0 0 64 32" aria-hidden="true">
+        <path d="M16 16H48" stroke="#000" stroke-width="3"/>
+        <circle cx="12" cy="16" r="10" fill="#000"/>
+        <circle cx="52" cy="16" r="10" fill="#000"/>
+      </svg>
+    </div>
+    <div>
+      <p class="statement">I build the systems<br>behind growth.</p>
+      <div class="foot">
+        <span>Marketing technology and automation</span>
+        <span>Berlin</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

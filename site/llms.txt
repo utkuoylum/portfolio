@@ -1,0 +1,48 @@
+# Etem Utku Oylum
+
+> Berlin-based marketing technology and automation lead (Senior Marketing Technology & Automation Manager). Builds the CRM, data, acquisition and AI workflow systems behind measurable growth, across B2B and B2C. EU Blue Card holder.
+
+## Profile
+
+- Current role: Senior Marketing Automation Manager at ucm, Berlin, since May 2026
+- Marketing Technology Manager at Zenjob, Berlin, 2025-2026
+- Meta Ads Technical Support at Concentrix, Berlin, 2024-2025
+- Digital Marketing Consultant, freelance, Izmir and remote, 2018-2025
+- Founding Partner, Web Developer and Marketing Manager at Cuiba Dance Center, Izmir, 2016-2019
+- Digital Marketing Specialist, Web Developer and Trainer at Danskeyfi Dance Academies, Istanbul, 2013-2015
+- Managing Editor at EA SPORTS (Turkish football data for FIFA and Total Club Manager), 2005-2007
+- Education: MBA, Berlin School of Business and Innovation, 2022-2024; Agricultural Engineering (Economics), Akdeniz University, 2006-2012
+- Languages: Turkish (native), English (professional proficiency), German (intermediate)
+
+## Selected results
+
+- AI visibility raised from below 2% to approximately 20%, placing the brand ahead of 80% of tracked competitors (SEO and GEO roadmap, ucm, 2026)
+- Organic lead volume tripled across B2B and B2C (ucm, 2026)
+- New Webflow website with its measurement layer: analytics, event tracking, lead attribution, web-to-app journeys, CRM integrations and advertising conversion events (ucm, 2026)
+- AI-assisted lead qualification, validation and routing with n8n and Retool, connected through REST APIs, OAuth and webhooks (Zenjob)
+- Consent-aware tracking with Segment and mParticle, and RAG-based internal knowledge tools (Zenjob)
+- Meta Pixel, Conversions API, attribution and event diagnostics for advertisers (Concentrix)
+
+## Things I build
+
+- An attribution system in Google Tag Manager: UTM parameters and click IDs are classified into channel, channel detail and channel group and carried through the lead form, so every lead is attributed before it reaches the CRM; dashboards and budget decisions run on the same fields (ucm)
+- AI visibility roadmaps: a measured prompt baseline across ChatGPT, Gemini and Perplexity (mention and citation share), then crawl access through Google and the Bing index, a connected schema.org entity graph, answer-first pages built on the tracked prompts and the third-party sources models cite; re-measured and re-prioritised monthly
+- n8n workflows that validate, qualify (with an AI agent) and route leads to Sales, Operations or Marketing, built with n8n and Retool (Zenjob)
+- Lifecycle automation fed by warehouse data: Retool and Snowflake for the data, dbt models for attributes and events, Braze for automated journeys (Zenjob)
+- A Webflow website with its full measurement layer (ucm)
+- Consent-aware tracking with Segment and mParticle, and RAG-based internal knowledge tools (Zenjob)
+
+## Toolkit
+
+- CRM and lifecycle: Braze, HubSpot, Salesforce; segmentation, personalization, journey orchestration
+- Automation and AI: n8n, Zapier, Make, Retool, Langdock, Claude, Cursor; AI agents, RAG, MCP, human-in-the-loop workflows
+- Data and measurement: Segment, mParticle, Hightouch, Snowflake, dbt, SQL; GTM, Google Analytics, Matomo, PostHog, Adjust, AppsFlyer, consent management
+- Acquisition and web: Meta Ads, Google Ads, TikTok Ads, SEO/GEO, CRO; Webflow, WordPress, JavaScript, React, Next.js, HTML/CSS
+- Engineering and integrations: Python, REST APIs, webhooks, SDK implementation, Git, GitHub
+
+## Contact
+
+- Email: utkuoylum@gmail.com
+- LinkedIn: https://linkedin.com/in/utkuoylum
+- GitHub: https://github.com/utkuoylum
+- Website: https://utkuoylum.com/
