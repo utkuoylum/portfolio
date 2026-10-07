@@ -1,5 +1,8 @@
 // All copy on the page, as typed data. Facts come from the CV or were confirmed by Etem.
 
+/** The canonical origin. Metadata, robots, sitemap and JSON-LD all derive from it. */
+export const SITE_URL = 'https://oylum.dev';
+
 export const person = {
   name: 'Etem Utku Oylum',
   alternateName: 'Utku Oylum',
@@ -7,7 +10,7 @@ export const person = {
   email: 'utkuoylum@gmail.com',
   linkedin: 'https://linkedin.com/in/utkuoylum',
   github: 'https://github.com/utkuoylum',
-  url: 'https://utkuoylum.com/',
+  url: `${SITE_URL}/`,
 };
 
 export const seo = {
@@ -246,10 +249,11 @@ export const nav = [
 export const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': `${SITE_URL}/#person`,
   name: person.name,
   alternateName: person.alternateName,
   url: person.url,
-  image: 'https://utkuoylum.com/opengraph-image.png',
+  image: `${SITE_URL}/opengraph-image.png`,
   jobTitle: person.jobTitle,
   worksFor: { '@type': 'Organization', name: 'ucm' },
   address: { '@type': 'PostalAddress', addressLocality: 'Berlin', addressCountry: 'DE' },

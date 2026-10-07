@@ -1,4 +1,4 @@
-# utkuoylum.com
+# oylum.dev
 
 Single-page portfolio for Etem Utku Oylum. Next.js 16 static export, React 19, TypeScript, GSAP and
 Lenis. No cookies, no storage, no third-party requests.
@@ -16,6 +16,13 @@ npm run typecheck
 `next start` does not serve static exports; `npm run preview` uses the small server in `serve.js`.
 
 ## Deploy
+
+The site lives at **https://oylum.dev** (apex). The origin is set once, as `SITE_URL` in `lib/content.ts`;
+canonical, Open Graph, JSON-LD, `robots.txt` and `sitemap.xml` all follow it.
+
+- `.dev` is on the browsers' HSTS preload list, so the site only ever loads over HTTPS. Every host below
+  issues the certificate automatically once DNS points at it.
+- Make the apex the primary domain and redirect `www.oylum.dev` to it, so the canonical URL is the only one.
 
 - Vercel: import the repository; it detects Next.js and serves the export. No settings needed.
 - Netlify, Cloudflare Pages, any static host: build command `npm run build`, publish directory `out`.
@@ -62,7 +69,7 @@ Every interaction fires a local event (`page_view`, `scroll_depth`, `section_vie
 `nav_click`, `outbound_click`, `email_click`, `email_copy`, `text_copy`, `toolkit_hover`,
 `engaged_time`, `tab_return`) through `track()` in `lib/sessionLog.ts`, and the contact section lists
 them. Attribution reads `utm_source` / `utm_medium` first, then the referrer, so a link shared as
-`https://utkuoylum.com/?utm_source=linkedin&utm_medium=social` shows up as its source.
+`https://oylum.dev/?utm_source=linkedin&utm_medium=social` shows up as its source.
 
 The copy on the page promises no cookies, no storage and nothing sent. If analytics are ever added,
 update that copy and the footer line first, and add consent handling. Forwarding the existing events

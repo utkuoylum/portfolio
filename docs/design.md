@@ -1,4 +1,4 @@
-# utkuoylum.com: design notes
+# oylum.dev: design notes
 
 Single-page portfolio for Etem Utku Oylum, Senior Marketing Technology & Automation Manager, Berlin.
 Source of truth for content: `../Etem Utku Oylum _ Senior & Lead Martech Resume 2026 (1).docx`.

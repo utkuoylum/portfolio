@@ -45,4 +45,4 @@
 - Email: utkuoylum@gmail.com
 - LinkedIn: https://linkedin.com/in/utkuoylum
 - GitHub: https://github.com/utkuoylum
-- Website: https://utkuoylum.com/
+- Website: https://oylum.dev/
