@@ -1,10 +1,10 @@
-// Minimal static server for local preview of ./site (no dependencies).
-// Usage: node serve.js  ->  http://127.0.0.1:8793
+// Minimal static server for the production build in ./out (no dependencies).
+// `next start` does not serve static exports. Usage: npm run preview  ->  http://127.0.0.1:8793
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const root = path.join(__dirname, 'site');
+const root = path.join(__dirname, 'out');
 const port = Number(process.env.PORT) || 8793;
 const types = {
   '.html': 'text/html; charset=utf-8',
@@ -20,6 +20,7 @@ const types = {
   '.woff2': 'font/woff2',
   '.txt': 'text/plain; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8',
+  '.map': 'application/json',
 };
 
 http.createServer((req, res) => {

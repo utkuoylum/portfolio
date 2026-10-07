@@ -1,5 +1,11 @@
 # Source material that must never be published (contains a phone number)
 *.docx
 
-.DS_Store
+# Dependencies and build output
 node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+.DS_Store

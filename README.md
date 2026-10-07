@@ -1,70 +1,76 @@
 # utkuoylum.com
 
-Single-page portfolio for Etem Utku Oylum. Static HTML, CSS and vanilla JavaScript with GSAP and
-Lenis. No build step, no third-party requests, no cookies.
+Single-page portfolio for Etem Utku Oylum. Next.js 16 static export, React 19, TypeScript, GSAP and
+Lenis. No cookies, no storage, no third-party requests.
 
-## Preview locally
+## Commands
 
 ```bash
-node serve.js
+npm install
+npm run dev       # development server on http://localhost:8794
+npm run build     # static export into out/
+npm run preview   # build, then serve out/ on http://127.0.0.1:8793
+npm run typecheck
 ```
 
-Then open http://127.0.0.1:8793.
+`next start` does not serve static exports; `npm run preview` uses the small server in `serve.js`.
 
 ## Deploy
 
-Publish the `site/` folder as the web root and point utkuoylum.com at it.
+- Vercel: import the repository; it detects Next.js and serves the export. No settings needed.
+- Netlify, Cloudflare Pages, any static host: build command `npm run build`, publish directory `out`.
 
-- Vercel: Root Directory `site`, no build command.
-- Netlify: publish directory `site`, no build command.
-- GitHub Pages: deploy `site/` with a Pages action.
-
-The CV `.docx` sits next to this folder and is ignored by `.gitignore`. Keep it out of any public
-repository: it contains a phone number.
+The CV `.docx` sits next to this folder and is ignored by `.gitignore`. Keep it out of the repository:
+it contains a phone number.
 
 ## Structure
 
 | Path | What it holds |
 | --- | --- |
-| `site/index.html` | All content and markup. Reads fine without JavaScript. |
-| `site/assets/css/style.css` | Tokens (light and dark), type scale, layout, sections. |
-| `site/assets/js/log.js` | The session log: local event tracking and its on-page view. |
-| `site/assets/js/ui.js` | Mobile menu, copy email, Berlin clock, toolkit cross-highlight. |
-| `site/assets/js/main.js` | Motion layer: GSAP ScrollTrigger and SplitText, Lenis. |
-| `site/assets/vendor/` | GSAP 3.15.0 and Lenis 1.3.26, self-hosted. |
-| `site/assets/fonts/` | Mona Sans and Fragment Mono woff2 (SIL Open Font License), self-hosted. |
-| `site/llms.txt`, `robots.txt`, `sitemap.xml` | Search and AI crawler files. |
-| `tools/og.html`, `tools/icon.html` | Sources for `og.png` and `apple-touch-icon.png`. |
+| `app/layout.tsx` | Fonts (`next/font/local`), metadata, Open Graph, theme colors, the `no-js` boot script. |
+| `app/page.tsx` | The page: header, sections, instrumentation, JSON-LD. |
+| `app/globals.css` | Tokens (light and dark), type scale, layout, sections. |
+| `app/robots.ts`, `app/sitemap.ts` | Generated as static files at build time. |
+| `app/icon.svg`, `app/apple-icon.png`, `app/opengraph-image.png` | Icons and the share image. |
+| `lib/content.ts` | All copy as typed data: cases, roles, toolkit, education, contact. |
+| `lib/motion.ts`, `lib/gsap.ts` | Media queries, the baked spring ease, plugin registration. |
+| `lib/schematic.ts` | Animates a case schematic: wires draw, nodes pop, packets ride the wires. |
+| `lib/sessionLog.ts` | The session log store (`track`, `subscribe`). |
+| `components/` | One component per section; client components only where motion or state runs. |
+| `components/schematics/` | The seven line drawings, pure SVG. |
+| `public/llms.txt` | Summary for AI crawlers. |
+| `tools/og.html`, `tools/icon.html` | Sources for the share image and the touch icon. |
 | `docs/design.md` | Design notes: concept, tokens, motion language. |
 
 ## Editing content
 
-- Copy lives in `site/index.html`. Keep facts aligned with the CV.
-- Each case has an inline SVG schematic in `.case__figure`. On desktop the motion layer clones it
-  into the sticky stage; on phones it stays inline.
-- The AI visibility grid is 100 circles; `data-rank` sets the order in which they light up.
-- The experience odometer reads `data-year` from each `.role`.
-- After changing the statement or title, regenerate the share image:
+- Copy lives in `lib/content.ts`. Keep facts aligned with the CV.
+- A new case needs an entry in `work.cases` and a drawing in `components/schematics/` registered in
+  `components/schematics/index.tsx`. Packet timing per drawing lives in `lib/schematic.ts`.
+- The experience odometer reads `year` from each role.
+- After changing the statement or title, regenerate the share image and copy it to
+  `app/opengraph-image.png`:
 
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars --force-device-scale-factor=1 --allow-file-access-from-files --window-size=1200,630 --screenshot="$PWD/site/assets/img/og.png" "file://$PWD/tools/og.html"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars --force-device-scale-factor=1 --allow-file-access-from-files --window-size=1200,630 --screenshot="$PWD/app/opengraph-image.png" "file://$PWD/tools/og.html"
 ```
 
 ## The session log
 
 Every interaction fires a local event (`page_view`, `scroll_depth`, `section_view`, `case_view`,
 `nav_click`, `outbound_click`, `email_click`, `email_copy`, `text_copy`, `toolkit_hover`,
-`engaged_time`, `tab_return`) through `window.sessionLog.track`, and the contact section lists them.
-Attribution reads `utm_source` / `utm_medium` first, then the referrer, so a link shared as
+`engaged_time`, `tab_return`) through `track()` in `lib/sessionLog.ts`, and the contact section lists
+them. Attribution reads `utm_source` / `utm_medium` first, then the referrer, so a link shared as
 `https://utkuoylum.com/?utm_source=linkedin&utm_medium=social` shows up as its source.
 
-The copy on the page promises no cookies, no storage and nothing sent. If analytics are ever
-added, update that copy and the footer line first, and add consent handling. Forwarding the
-existing events to a data layer is a single `window.sessionLog.subscribe` call.
+The copy on the page promises no cookies, no storage and nothing sent. If analytics are ever added,
+update that copy and the footer line first, and add consent handling. Forwarding the existing events
+to a data layer is a single `subscribe()` call.
 
 ## Motion and accessibility
 
 - `prefers-reduced-motion: reduce` turns off smooth scrolling, scrubbing and loops; every element
   renders in its final state.
-- If the motion layer fails to load, a 2.5 second fallback reveals everything.
+- The page is prerendered, so all content is in the HTML. If the motion layer does not start within
+  2.5 seconds, a fallback reveals everything.
 - One `h1`, semantic sections, visible keyboard focus, a skip link, and JSON-LD `Person` markup.

@@ -70,5 +70,8 @@ Line length under 70ch for body copy.
 
 ## Tech
 
-Static HTML, CSS and vanilla JS. GSAP 3.15 (ScrollTrigger, SplitText) and Lenis 1.3, vendored in
-`site/assets/vendor`. No build step. Deploy the `site/` folder to any static host.
+Next.js 16 (App Router) with `output: 'export'`, React 19 and TypeScript. Every section is prerendered
+into `out/index.html`, so the content reads without JavaScript and crawlers that do not run scripts see
+all of it. Motion runs in client components through `@gsap/react` (`useGSAP`), with GSAP 3.15
+(ScrollTrigger, SplitText) and Lenis 1.3. Fonts are self-hosted through `next/font/local`.
+Copy lives in `lib/content.ts`; the session log is a small store in `lib/sessionLog.ts`.
