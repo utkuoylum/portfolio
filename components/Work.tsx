@@ -1,10 +1,12 @@
 import { work } from '@/lib/content';
 import Cases from './Cases';
 import Scene from './Scene';
+import Field from './Field';
 
 export default function Work() {
   return (
     <Scene id="work" className="work" labelledBy="work-title">
+      <Field variant="blueprint" />
       <div className="wrap">
         <header className="section-head">
           <h2 className="section-title" id="work-title">

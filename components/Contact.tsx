@@ -4,10 +4,12 @@ import ContactTitle from './ContactTitle';
 import CopyEmail from './CopyEmail';
 import Scene from './Scene';
 import SessionLog from './SessionLog';
+import Field from './Field';
 
 export default function Contact() {
   return (
     <Scene id="contact" className="contact" labelledBy="contact-title">
+      <Field variant="ripples" />
       <div className="wrap">
         <ContactTitle text={contact.title} />
 

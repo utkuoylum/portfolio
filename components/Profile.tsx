@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap, SplitText, useGSAP } from '@/lib/gsap';
 import { MOTION } from '@/lib/motion';
 import { profile } from '@/lib/content';
+import Field from './Field';
 
 /** The paragraph fills word by word as it is read. */
 export default function Profile() {
@@ -38,6 +39,7 @@ export default function Profile() {
 
   return (
     <section className="profile" id="profile" aria-labelledby="profile-title" data-section="profile">
+      <Field variant="scan" />
       <div className="wrap">
         <h2 className="visually-hidden" id="profile-title">
           Profile

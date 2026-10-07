@@ -36,6 +36,7 @@ it contains a phone number.
 | `lib/motion.ts`, `lib/gsap.ts` | Media queries, the baked spring ease, plugin registration. |
 | `lib/schematic.ts` | Animates a case schematic: wires draw, nodes pop, packets ride the wires. |
 | `lib/sessionLog.ts` | The session log store (`track`, `subscribe`). |
+| `lib/field.ts`, `components/Field.tsx` | Background fields: one barely visible, pointer-aware pattern per section. |
 | `components/` | One component per section; client components only where motion or state runs. |
 | `components/schematics/` | The seven line drawings, pure SVG. |
 | `public/llms.txt` | Summary for AI crawlers. |
@@ -71,6 +72,8 @@ to a data layer is a single `subscribe()` call.
 
 - `prefers-reduced-motion: reduce` turns off smooth scrolling, scrubbing and loops; every element
   renders in its final state.
+- Background fields draw on a canvas only on screens 700px and wider with motion allowed; phones,
+  reduced motion and no-JS get the same dots as a static CSS pattern.
 - The page is prerendered, so all content is in the HTML. If the motion layer does not start within
   2.5 seconds, a fallback reveals everything.
 - One `h1`, semantic sections, visible keyboard focus, a skip link, and JSON-LD `Person` markup.
